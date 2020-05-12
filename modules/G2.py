@@ -95,7 +95,53 @@ class ChartItem:
 #         return self
         
 
-
+class CoordinateControl:
+    
+    def __init__(self,name):
+        
+        coord_func = ['reflect','rotate', 'scale','transpose']
+        
+        self.item_code = 'chart.'
+        self.__name = name
+        
+        for i in coord_func:
+            self.__dict__[i]= self.get_coord_function(i)
+            
+    def get_coord_function(self,name):
+        def coord_function(*amount):
+            
+            if name == 'reflect':
+                self.item_code += '.%s("%s")'%(name,amount[0])
+            elif name == 'rotate':
+                self.item_code += '.%s(%s)'%(name,amount[0])
+            elif name == 'scale':
+                self.item_code += '.%s(%s,%s)'%(name,amount[0],amount[1])
+            elif name == 'transpose':
+                self.item_code += '.%s()'%name
+#             if len(amount)==0:
+#                 self.item_code += '.%s()'%name
+#             elif len(amount)==1:
+#                 self.item_code += '.%s(%s)'%(name,amount[0])
+#             else:
+#                 self.item_code += '.%s(%s)'%(name,list(amount))
+            return self
+        return coord_function
+        
+        
+    def add_code(self):
+        self.item_code += 'coordinate(\''+self.__name+'\')'
+        
+        
+#     def attach_config(self,config_dict):
+#         if config_dict:
+#             self.item_code = self.item_code%(','+str(config_dict))
+#         else:
+#             self.item_code = self.item_code%''
+            
+    def __str__(self):
+        
+        return self.item_code
+    
 
 
 # Chart class to be developed
@@ -115,6 +161,8 @@ class Chart:
         self.layout['width'] = width
         self.additional_code = ''
         self.chart_items = []
+        
+        self.coordinate_sys = ''
         
         for i in geom:
             self.__dict__[i]= self.get_geom_function(i)
@@ -136,6 +184,11 @@ class Chart:
     def add_code(self,js_code):
         self.additional_code += js_code+';'
         
+    def coordinate(self,name,**config):
+        self.coordinate_sys = CoordinateControl(name)
+        self.coordinate_sys.add_code()
+        return self.coordinate_sys
+        
     def create_item_code(self):
         
         item_code=''
@@ -150,6 +203,7 @@ class Chart:
         data_code = 'var data = %s; \n chart.data(data);'%self.chart_data
         #item_code = 'chart.interval().position(\'x*y\');'
         item_code = self.create_item_code()
+        coordinate_code = str(self.coordinate_sys) + ';'
         element_code = ''
         additional_code = self.additional_code
         render_code = 'chart.render();'
@@ -157,7 +211,7 @@ class Chart:
         
         
         
-        final_code = layout_code+data_code+item_code+element_code+additional_code+render_code
+        final_code = layout_code+data_code+item_code+coordinate_code+element_code+additional_code+render_code
         return Javascript(get_notebook_code(final_code))
     
     def get_geom_function(self, geom):
@@ -170,6 +224,7 @@ class Chart:
             return chart_item
         return geometry
     
+   
    
 
 
