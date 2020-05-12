@@ -71,15 +71,15 @@ class Chart:
     def render(self):
         # Should be modified in a better form
         layout_code = ('var chart = new G2.Chart(%s);'%self.layout).replace('\'element.get(0)\'','element.get(0)')
-        data_code = 'var data = %s;'%self.data
-        item_code = 'chart.point().position(\'x*y\');'
+        data_code = 'var data = %s; \n chart.data(data);'%self.data
+        item_code = 'chart.interval().position(\'x*y\');'
         element_code = ''
         render_code = 'chart.render();'
         
         
         
         final_code = layout_code+data_code+item_code+element_code+render_code
-        return Javascript(final_code)
+        return Javascript(get_notebook_code(final_code))
         
    
 
