@@ -2,4 +2,6 @@
 *.ipynb
 *.ipynb_checkpoints/*
 *.csv
-
+build/*
+dist/*
+pyG2.egg-info/*
