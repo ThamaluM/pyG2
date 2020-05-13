@@ -1,6 +1,6 @@
 # pyG2
 
-A grammar of graphics python library for jupyter notebooks on top of g2
+A grammar of graphics python library for jupyter notebooks on top of G2
 
 # Author
 
