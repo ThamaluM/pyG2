@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@antv/data-set"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        const ds = new DataSet();
+        
+        
+        var data = [{"text":"aaa","value":10},{"text":"ccc","value":40}]
+        const dv = ds.createView().source(data, {type:'graph',edges:d=>d.links});
+
+        // dv.transform({
+        //     type: 'tag-cloud',
+        //     fields: ['text', 'value'], // 参与标签云layout的字段集（前者为文本内容，后者为权重值）
+        //     font: 'serif', // 标签字体
+        //     size: [500, 500], // 画布size，[ width, height ]
+        //     padding: 0,
+        //     spiral: 'archimedean', // 标签螺旋排布规律函数 'archimedean' || 'rectangular' || {function}
+        //     fontSize(d) {
+        //         return d.value;
+        //     }, // 计算标签字体大小的回调函数，d为一行数据
+        //     //timeInterval: Infinity, // 最大迭代时间，默认为无限大
+        //     //imageMask: { Image }, // Image的实例，必须是 loaded 状态
+        // });
+        document.getElementById("container").innerHTML = console.log(dv.edges);
+    </script>
+
+
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 from IPython.display import Javascript, display_html
 import pandas as pd
+import pkgutil
 
 
 # Coded by Thamalu Maliththa Piyadigama
@@ -22,6 +23,17 @@ require(['G2'], function(G2) {{
 </script>
 
 '''
+
+loading_code_1 ='''<script type="text/javascript">
+              
+        define('G2', function(require, exports, module) {
+            %s
+        });
+        require(['G2'], function(G2) {
+            window.G2 = G2;
+        });
+        
+        </script>'''
 
 
 def get_notebook_code(code):
@@ -49,7 +61,9 @@ def run_code(notebook_code):
     return Javascript(notebook_code)
 
 # Load G2 into notebook
-display_html(loading_code,raw=True)
+g2_source = pkgutil.get_data("G2", 'g2/g2.min.js').decode("utf-8")
+display_html(loading_code_1%g2_source,raw=True)
+#display_html(loading_code,raw=True)
 
 
 class ChartItem:
@@ -80,11 +94,14 @@ class ChartItem:
         return self.item_code
     
     def get_aes_function(self,aes):
-        def aestatic(map,**config):
+        def aestatic(map,*values,**config):
             if config:
                 self.item_code += "."+aes+"('%s',%s)"%(map,config)
             else:
-                self.item_code += "."+aes+"('%s')"%map
+                if values:
+                    self.item_code += "."+aes+"('%s',%s)"%(map,list(values))
+                else:
+                    self.item_code += "."+aes+"('%s')"%map
             return self
         return aestatic
 
@@ -118,6 +135,10 @@ class CoordinateControl:
                 self.item_code += '.%s(%s,%s)'%(name,amount[0],amount[1])
             elif name == 'transpose':
                 self.item_code += '.%s()'%name
+            elif name == 'translate':
+                self.item_code += '.%s(%s,%s)'%(name,amount[0],amount[1])
+            else:
+                print("Coordinate transformation '%s' is not supported.")
 #             if len(amount)==0:
 #                 self.item_code += '.%s()'%name
 #             elif len(amount)==1:
@@ -142,6 +163,33 @@ class CoordinateControl:
         
         return self.item_code
     
+ 
+# Objects to contain codes related to annotations
+class AnnotationObject:
+    
+    #annots = ['arc','dataMarker','dataRegion','image','layout','line','region','regionFilter','render','text']
+    code = 'chart.annotation().'
+    
+    def __init__(self):
+        
+        
+        annots = ['arc','dataMarker','dataRegion','image','layout','line','region','regionFilter','render','text']
+        
+        for i in annots:
+            self.__dict__[i] = self.get_annot_function(i)
+    
+    
+    
+    def get_annot_function(self,name):
+        def annot_function(**config):
+            self.code += name+'(%s)'%config
+            return self
+        return annot_function
+    
+    def __str__(self):
+        
+        return self.code
+    
 
 
 # Chart class to be developed
@@ -161,8 +209,14 @@ class Chart:
         self.layout['width'] = width
         self.additional_code = ''
         self.chart_items = []
+        self.annotate_items = []
         
         self.coordinate_sys = ''
+        self.scale_details = []
+        self.axis_details = []
+        self.tooltip_details = ''
+        self.legend_details = ''
+        
         
         for i in geom:
             self.__dict__[i]= self.get_geom_function(i)
@@ -188,6 +242,28 @@ class Chart:
         self.coordinate_sys = CoordinateControl(name)
         self.coordinate_sys.add_code()
         return self.coordinate_sys
+    
+    def scale(self,variable,**config):
+        code = "chart.scale('%s',%s)"%(variable,config)
+        self.scale_details.append(code)
+        return self
+    
+    def axis(self,variable,**config):
+        code = "chart.axis('%s',%s)"%(variable,config)
+        self.scale_details.append(code)
+        return self
+    
+    def create_scale_code(self):
+        code = ""
+        for i in self.scale_details:
+            code += i + ';\n'
+        return code
+    
+    def create_axis_code(self):
+        code = ""
+        for i in self.axis_details:
+            code += i + ';\n'
+        return code
         
     def create_item_code(self):
         
@@ -196,14 +272,52 @@ class Chart:
             item_code+=str(i)+';\n'
             
         return item_code
+    
+    def create_annotation_code(self):
+        
+        item_code=''
+        for i in self.annotate_items:
+            item_code+=str(i)+';\n'
+            
+        return item_code
+    
+    def tooltip(self,**config):
+         self.tooltip_details = "chart.tooltip(%s)"%config
+            
+    def legend(self,value='',**config):
+        if value and config:
+            self.legend_details = "chart.legend('%s',%s)"%(value,config)
+        elif value:
+            self.legend_details = "chart.legend('%s')"%value
+        else:
+            self.legend_details = "chart.legend(%s)"%config
+            
+    def annotation(self):
+        
+        annot_obj = AnnotationObject()
+        self.annotate_items.append(annot_obj)
+        return annot_obj
+    
+    def create_annotate_code(self):
+        
+        item_code=''
+        for i in self.annotate_items:
+            item_code+=str(i)+';\n'
+            
+        return item_code
         
     def render(self):
         # Should be modified in a better form
         layout_code = self.get_layout_code()
         data_code = 'var data = %s; \n chart.data(data);'%self.chart_data
+        scale_code = self.create_scale_code()
         #item_code = 'chart.interval().position(\'x*y\');'
+        axis_code = self.create_axis_code()
         item_code = self.create_item_code()
-        coordinate_code = str(self.coordinate_sys) + ';'
+        coordinate_code = str(self.coordinate_sys) + ';\n'
+        tooltip_code = self.tooltip_details+';\n'
+        legend_code = self.legend_details + ';\n'
+        annotate_code = self.create_annotate_code()
         element_code = ''
         additional_code = self.additional_code
         render_code = 'chart.render();'
@@ -211,8 +325,39 @@ class Chart:
         
         
         
-        final_code = layout_code+data_code+item_code+coordinate_code+element_code+additional_code+render_code
+        final_code = layout_code+data_code+scale_code+axis_code+item_code+coordinate_code+tooltip_code+element_code+legend_code+annotate_code+additional_code+render_code
         return Javascript(get_notebook_code(final_code))
+    
+    def facet_render(self, shape, **config):
+        
+        # Should be modified in a better form
+        layout_code = self.get_layout_code()
+        data_code = 'var data = %s; \n chart.data(data);'%self.chart_data + '\n'
+        scale_code = self.create_scale_code()
+        #item_code = 'chart.interval().position(\'x*y\');'
+        axis_code = self.create_axis_code()
+        item_code = self.create_item_code()
+        coordinate_code = str(self.coordinate_sys) + ';\n'
+        tooltip_code = self.tooltip_details+';\n'
+        legend_code = self.legend_details + ';\n'
+        annotate_code = self.create_annotate_code()
+        element_code = ''
+        additional_code = self.additional_code
+        render_code = 'chart.render();'
+        
+        each_view = '(chart)=>{%s}'%item_code
+        config['eachView'] = 'each_view'
+        
+        facet_code = 'chart.facet("%s",%s)'%(shape,config)+';\n'
+        facet_code = facet_code.replace("'each_view'",each_view)
+        
+        
+        
+        
+        final_code = layout_code+data_code+scale_code+axis_code+facet_code+coordinate_code+tooltip_code+element_code+legend_code+annotate_code+additional_code+render_code
+        
+        return Javascript(get_notebook_code(final_code))
+        
     
     def get_geom_function(self, geom):
         
