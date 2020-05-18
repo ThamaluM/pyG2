@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>API &#8212; pyG2 0.0a0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Three Steps of Grammar of Graphics" href="grammar_of_graphics/three_steps.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-G2">
+<span id="api"></span><h1>API<a class="headerlink" href="#module-G2" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="G2.AnnotationObject">
+<em class="property">class </em><code class="sig-prename descclassname">G2.</code><code class="sig-name descname">AnnotationObject</code><a class="headerlink" href="#G2.AnnotationObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object that contains an annotation related code snippet</p>
+<dl class="py method">
+<dt id="G2.AnnotationObject.get_annot_function">
+<code class="sig-name descname">get_annot_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.AnnotationObject.get_annot_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives an function for annotation type
+Parameters
+=========
+name: string, name of the function</p>
+<p>function</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="G2.Chart">
+<em class="property">class </em><code class="sig-prename descclassname">G2.</code><code class="sig-name descname">Chart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">500</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">400</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains all details of a chart</p>
+<dl class="py method">
+<dt id="G2.Chart.add_code">
+<code class="sig-name descname">add_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">js_code</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.add_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>add an arbitratry javascript code to the javascript code body</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.annotation">
+<code class="sig-name descname">annotation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.annotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add annotaion objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.axis">
+<code class="sig-name descname">axis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variable</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Axis configuration</p>
+<p>variable: string, variable related to the axis
+config: xxargs [optional] , axis configurations</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all chart configurations except layout</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.clear_annotations">
+<code class="sig-name descname">clear_annotations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.clear_annotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear annotation details</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.clear_items">
+<code class="sig-name descname">clear_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.clear_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear geometry details</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.coordinate">
+<code class="sig-name descname">coordinate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.coordinate" title="Permalink to this definition">¶</a></dt>
+<dd><p>configure coordinate system</p>
+<p>name : string, name of the coordinate system - rect, polar, theta, helix
+configuration: xxargs, coordinate system configurations</p>
+<p>string</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.create_annotate_code">
+<code class="sig-name descname">create_annotate_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.create_annotate_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create annotation code snippets from the annotation objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.create_annotation_code">
+<code class="sig-name descname">create_annotation_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.create_annotation_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate code snippet for annotations</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.create_axis_code">
+<code class="sig-name descname">create_axis_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.create_axis_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate code snippet for axis configuration</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.create_item_code">
+<code class="sig-name descname">create_item_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.create_item_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate code snippet for geomtry objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.create_legend_code">
+<code class="sig-name descname">create_legend_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.create_legend_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create annotation code snippets from the annotation objects</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.create_scale_code">
+<code class="sig-name descname">create_scale_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.create_scale_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate code snippet for coordinate configuration</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.data">
+<code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide data to the graph</p>
+<p>data: list of dictionaries/ pandas.DataFrame object (recommended)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.facet_render">
+<code class="sig-name descname">facet_render</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.facet_render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render chart in facets
+Parameters
+===========
+shape = string , shape of the facets - rect, list , matrix , tree , circle
+config = xxargs , configurations - fields, padding</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.get_geom_function">
+<code class="sig-name descname">get_geom_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">geom</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.get_geom_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get geometry function</p>
+<p>geom: string, name of the geometry point, line, interval, area, polygon, path, heatmap, schema</p>
+<p>Function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.get_layout_code">
+<code class="sig-name descname">get_layout_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.get_layout_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>code for basic layout</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.legend">
+<code class="sig-name descname">legend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.legend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure legend</p>
+<p>value: string [optional], variable of the corresponding leggend 
+config: xxargs, configurations of legends</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.render">
+<code class="sig-name descname">render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the chart</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.scale">
+<code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variable</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure scale</p>
+<p>variable: string, corresponding variable
+config: xxargs, configurations for the coordinate system</p>
+<p>Chart</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.Chart.tooltip">
+<code class="sig-name descname">tooltip</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.tooltip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure tooltip</p>
+<p>config: xxargs, configurations of tooltip</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="G2.ChartItem">
+<em class="property">class </em><code class="sig-prename descclassname">G2.</code><code class="sig-name descname">ChartItem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.ChartItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object contains codes related to an geometric item.</p>
+<dl class="py method">
+<dt id="G2.ChartItem.add_code">
+<code class="sig-name descname">add_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.ChartItem.add_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare basic format of the code snippet</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.ChartItem.attach_config">
+<code class="sig-name descname">attach_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.ChartItem.attach_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach geometry item configuration if such configuration exists.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.ChartItem.get_aes_function">
+<code class="sig-name descname">get_aes_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">aes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.ChartItem.get_aes_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach corresponding aesthetic function</p>
+<p>aes: string, name of the aesthatic function</p>
+<p>aesthetic function of that name</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="G2.CoordinateControl">
+<em class="property">class </em><code class="sig-prename descclassname">G2.</code><code class="sig-name descname">CoordinateControl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.CoordinateControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object contain coordinate controlling code snippets</p>
+<dl class="py method">
+<dt id="G2.CoordinateControl.add_code">
+<code class="sig-name descname">add_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.CoordinateControl.add_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare basic code format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="G2.CoordinateControl.get_coord_function">
+<code class="sig-name descname">get_coord_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.CoordinateControl.get_coord_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get coordinate system transformation functions</p>
+<p>name: string, name of the coordinate transformation</p>
+<p>function</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="G2.get_notebook_code">
+<code class="sig-prename descclassname">G2.</code><code class="sig-name descname">get_notebook_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">code</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.get_notebook_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a javascript code safe to run on notebook (make <cite>element</cite> unambigous)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="G2.get_pyG2_code">
+<code class="sig-prename descclassname">G2.</code><code class="sig-name descname">get_pyG2_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plain_code</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.get_pyG2_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make G2 library accessible for a code snippet</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="G2.run_code">
+<code class="sig-prename descclassname">G2.</code><code class="sig-name descname">run_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">notebook_code</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.run_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a javascript code and display output</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">pyG2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="grammar_of_graphics/three_steps.html">Three Steps of Grammar of Graphics</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="grammar_of_graphics/three_steps.html" title="previous chapter">Three Steps of Grammar of Graphics</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Thamalu Maliththa Piyadigama.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
