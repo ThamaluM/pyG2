@@ -294,7 +294,7 @@ class Chart:
         self.scale_details = []
         self.axis_details = []
         self.tooltip_details = ''
-        self.legend_details = ''
+        self.legend_details = []
         
         
         for i in geom:
@@ -415,7 +415,7 @@ class Chart:
 
         self.tooltip_details = "chart.tooltip(%s)"%config
 
-    # To do: have to consider about multiple legend items      
+        
     def legend(self,value='',**config):
 
         ''' 
@@ -427,11 +427,11 @@ class Chart:
         config: xxargs, configurations of legends
         '''
         if value and config:
-            self.legend_details = "chart.legend('%s',%s)"%(value,config)
+            self.legend_details.append("chart.legend('%s',%s)"%(value,config))
         elif value:
-            self.legend_details = "chart.legend('%s')"%value
+            self.legend_details.append("chart.legend('%s')"%value)
         else:
-            self.legend_details = "chart.legend(%s)"%config
+            self.legend_details.append("chart.legend(%s)"%config)
             
     def annotation(self):
         ''' 
@@ -450,6 +450,16 @@ class Chart:
             item_code+=str(i)+';\n'
             
         return item_code
+    
+    def create_legend_code(self):
+        '''
+        Create annotation code snippets from the annotation objects
+        '''
+        item_code=''
+        for i in self.legend_details:
+            item_code+=str(i)+';\n'
+            
+        return item_code
 
     def clear(self):
         ''' Clear all chart configurations except layout '''
@@ -461,7 +471,7 @@ class Chart:
         self.scale_details = []
         self.axis_details = []
         self.tooltip_details = ''
-        self.legend_details = ''
+        self.legend_details = []
         
 
     def clear_items(self):
@@ -484,7 +494,7 @@ class Chart:
         item_code = self.create_item_code()
         coordinate_code = str(self.coordinate_sys) + ';\n'
         tooltip_code = self.tooltip_details+';\n'
-        legend_code = self.legend_details + ';\n'
+        legend_code = self.create_legend_code()
         annotate_code = self.create_annotate_code()
         element_code = ''
         additional_code = self.additional_code
@@ -513,13 +523,13 @@ class Chart:
         item_code = self.create_item_code()
         coordinate_code = str(self.coordinate_sys) + ';\n'
         tooltip_code = self.tooltip_details+';\n'
-        legend_code = self.legend_details + ';\n'
-        annotate_code = ''#self.create_annotate_code()   # Have to study how annotations are handled in facets
+        legend_code =  self.create_legend_code()
+        annotate_code = self.create_annotate_code()   # Have to study how annotations are handled in facets
         element_code = ''
         additional_code = self.additional_code
         render_code = 'chart.render();'
         
-        each_view = '(chart)=>{%s}'%item_code
+        each_view = '(chart)=>{%s}'%(item_code+annotate_code)
         config['eachView'] = 'each_view'
         
         facet_code = 'chart.facet("%s",%s)'%(shape,config)+';\n'
