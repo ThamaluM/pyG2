@@ -40,7 +40,17 @@ loading_code_1 ='''<script type="text/javascript">
 
 
 def get_notebook_code(code):
-    ''' Make a javascript code safe to run on notebook (make `element` unambigous) '''
+    ''' Make a javascript code safe to run on notebook (make `element` unambigous) 
+    
+    Parameters
+    ===========
+    code: str
+
+    Return
+    ============
+
+    str
+    '''
 
     return '''
 (
@@ -52,7 +62,16 @@ def get_notebook_code(code):
 # Not necessary for a notebook
 def get_pyG2_code(plain_code):
 
-    ''' Make G2 library accessible for a code snippet  '''
+    ''' Make G2 library accessible for a code snippet 
+    
+    Parameters
+    ===========
+    plain_code: str
+
+    Return 
+    =======
+    str
+    '''
 
     return '''require(['G2'],function(G2){
     %s
@@ -60,7 +79,17 @@ def get_pyG2_code(plain_code):
 
 def run_code(notebook_code):
 
-    ''' Run a javascript code and display output '''
+    ''' 
+    Run a javascript code and display output
+    
+    Parameters
+    ===========
+    notebook_code: str
+
+    Return
+    =======
+    IPython.core.display.Javascript
+    '''
     return Javascript(notebook_code)
 
 # Load G2 into notebook
@@ -81,7 +110,7 @@ class ChartItem:
         '''
         parameters
         ===========
-        name : string
+        name : str
         
         '''
         
@@ -115,7 +144,7 @@ class ChartItem:
 
         Parameters
         ==========
-        aes: string, name of the aesthatic function
+        aes: str, name of the aesthatic function
 
         Return
         ======
@@ -128,7 +157,7 @@ class ChartItem:
 
             Parameters
             ==========
-            map: string, the variable map of the asesthetic e.g 'x*y'
+            map: str, the variable map of the asesthetic e.g 'x*y'
             values: xargs [optional], values of that aesthetic 
             config: xxargs, configuration details
 
@@ -158,7 +187,7 @@ class CoordinateControl:
         '''
         Parameters:
         ==========
-        name: string, name of the coordinate system - rect/cartesian,polar,theta,helix
+        name: str, name of the coordinate system - rect/cartesian,polar,theta,helix
         '''
         coord_func = ['reflect','rotate', 'scale','transpose']
         
@@ -174,7 +203,7 @@ class CoordinateControl:
 
         Parameters
         ==========
-        name: string, name of the coordinate transformation
+        name: str, name of the coordinate transformation
 
         return
         =======
@@ -240,9 +269,10 @@ class AnnotationObject:
     
     def get_annot_function(self,name):
         ''' Gives an function for annotation type
+
         Parameters
         =========
-        name: string, name of the function
+        name: str, name of the function
 
         return 
         =======
@@ -314,7 +344,7 @@ class Chart:
         if type(data) == list:
             self.chart_data = data
         elif type(data) == pd.core.frame.DataFrame:
-            self.chart_data = data.to_dict(orient='record')
+            self.chart_data = data.T.apply(lambda x: x.dropna().to_dict()).tolist()
         else:
             raise TypeError("Unsupported input data type. Only `pandas.DataFrame` and `list` of `dictionary`s are supported.")
         
@@ -332,8 +362,8 @@ class Chart:
 
         Parameters
         ==========
-        name : string, name of the coordinate system - rect, polar, theta, helix
-        configuration: xxargs, coordinate system configurations
+        name : str, name of the coordinate system - rect, polar, theta, helix
+        config: xxargs, coordinate system configurations
 
         return
         =======
@@ -349,7 +379,7 @@ class Chart:
 
         Parameters
         ==========
-        variable: string, corresponding variable
+        variable: str, corresponding variable
         config: xxargs, configurations for the coordinate system
 
         Return 
@@ -367,7 +397,7 @@ class Chart:
 
         Parameters
         ==========
-        variable: string, variable related to the axis
+        variable: str, variable related to the axis
         config: xxargs [optional] , axis configurations
         '''
         code = "chart.axis('%s',%s)"%(variable,config)
@@ -423,7 +453,7 @@ class Chart:
         
         Parameters
         ==========
-        value: string [optional], variable of the corresponding leggend 
+        value: str [optional], variable of the corresponding legend 
         config: xxargs, configurations of legends
         '''
         if value and config:
@@ -436,6 +466,10 @@ class Chart:
     def annotation(self):
         ''' 
         Add annotaion objects
+
+        Return
+        =======
+        AnnotationObject
         '''
         annot_obj = AnnotationObject()
         self.annotate_items.append(annot_obj)
@@ -444,6 +478,10 @@ class Chart:
     def create_annotate_code(self):
         '''
         Create annotation code snippets from the annotation objects
+
+        Return
+        =======
+        str
         '''
         item_code=''
         for i in self.annotate_items:
@@ -454,6 +492,10 @@ class Chart:
     def create_legend_code(self):
         '''
         Create annotation code snippets from the annotation objects
+
+        Return
+        =======
+        str
         '''
         item_code=''
         for i in self.legend_details:
@@ -483,7 +525,14 @@ class Chart:
         self.annotate_items = []
         
     def render(self):
-        ''' Render the chart '''
+        ''' 
+        Render the chart
+        
+        Return
+        =======
+
+        IPython.core.display.Javascript
+        '''
 
         # Should be modified in a better form
         layout_code = self.get_layout_code()
@@ -508,10 +557,17 @@ class Chart:
     
     def facet_render(self, shape, **config):
         ''' Render chart in facets
+
         Parameters
         ===========
         shape = string , shape of the facets - rect, list , matrix , tree , circle
         config = xxargs , configurations - fields, padding
+
+        Return
+        ========
+
+        IPython.core.display.Javascript
+        
         '''
 
         # Should be modified in a better form
