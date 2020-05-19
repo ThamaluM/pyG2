@@ -40,11 +40,18 @@
 <dl class="py method">
 <dt id="G2.AnnotationObject.get_annot_function">
 <code class="sig-name descname">get_annot_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.AnnotationObject.get_annot_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gives an function for annotation type
-Parameters
-=========
-name: string, name of the function</p>
-<p>function</p>
+<dd><p>Gives an function for annotation type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em>, </em><em>name of the function</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -63,14 +70,28 @@ name: string, name of the function</p>
 <dt id="G2.Chart.annotation">
 <code class="sig-name descname">annotation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.annotation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add annotaion objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#G2.AnnotationObject" title="G2.AnnotationObject">AnnotationObject</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="G2.Chart.axis">
 <code class="sig-name descname">axis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variable</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Axis configuration</p>
-<p>variable: string, variable related to the axis
-config: xxargs [optional] , axis configurations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable</strong> (<em>str</em><em>, </em><em>variable related to the axis</em>) – </p></li>
+<li><p><strong>config</strong> (<em>xxargs</em><em> [</em><em>optional</em><em>] </em><em>, </em><em>axis configurations</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -95,15 +116,34 @@ config: xxargs [optional] , axis configurations</p>
 <dt id="G2.Chart.coordinate">
 <code class="sig-name descname">coordinate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.coordinate" title="Permalink to this definition">¶</a></dt>
 <dd><p>configure coordinate system</p>
-<p>name : string, name of the coordinate system - rect, polar, theta, helix
-configuration: xxargs, coordinate system configurations</p>
-<p>string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>name of the coordinate system - rect</em><em>, </em><em>polar</em><em>, </em><em>theta</em><em>, </em><em>helix</em>) – </p></li>
+<li><p><strong>config</strong> (<em>xxargs</em><em>, </em><em>coordinate system configurations</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="G2.Chart.create_annotate_code">
 <code class="sig-name descname">create_annotate_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.create_annotate_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create annotation code snippets from the annotation objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -128,6 +168,14 @@ configuration: xxargs, coordinate system configurations</p>
 <dt id="G2.Chart.create_legend_code">
 <code class="sig-name descname">create_legend_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.create_legend_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create annotation code snippets from the annotation objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -140,25 +188,48 @@ configuration: xxargs, coordinate system configurations</p>
 <dt id="G2.Chart.data">
 <code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide data to the graph</p>
-<p>data: list of dictionaries/ pandas.DataFrame object (recommended)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>list of dictionaries/ pandas.DataFrame object</em><em> (</em><em>recommended</em><em>)</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="G2.Chart.facet_render">
 <code class="sig-name descname">facet_render</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.facet_render" title="Permalink to this definition">¶</a></dt>
-<dd><p>Render chart in facets
-Parameters
-===========
-shape = string , shape of the facets - rect, list , matrix , tree , circle
-config = xxargs , configurations - fields, padding</p>
+<dd><p>Render chart in facets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>= string</strong><strong> , </strong><strong>shape of the facets - rect</strong><strong>, </strong><strong>list</strong><strong> , </strong><strong>matrix</strong><strong> , </strong><strong>tree</strong><strong> , </strong><strong>circle</strong> (<em>shape</em>) – </p></li>
+<li><p><strong>= xxargs</strong><strong> , </strong><strong>configurations - fields</strong><strong>, </strong><strong>padding</strong> (<em>config</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>IPython.core.display.Javascript</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="G2.Chart.get_geom_function">
 <code class="sig-name descname">get_geom_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">geom</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.get_geom_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get geometry function</p>
-<p>geom: string, name of the geometry point, line, interval, area, polygon, path, heatmap, schema</p>
-<p>Function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>geom</strong> (<em>string</em><em>, </em><em>name of the geometry point</em><em>, </em><em>line</em><em>, </em><em>interval</em><em>, </em><em>area</em><em>, </em><em>polygon</em><em>, </em><em>path</em><em>, </em><em>heatmap</em><em>, </em><em>schema</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Function</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -171,30 +242,59 @@ config = xxargs , configurations - fields, padding</p>
 <dt id="G2.Chart.legend">
 <code class="sig-name descname">legend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.legend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure legend</p>
-<p>value: string [optional], variable of the corresponding leggend 
-config: xxargs, configurations of legends</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>str</em><em> [</em><em>optional</em><em>]</em><em>, </em><em>variable of the corresponding legend</em>) – </p></li>
+<li><p><strong>config</strong> (<em>xxargs</em><em>, </em><em>configurations of legends</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="G2.Chart.render">
 <code class="sig-name descname">render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render the chart</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>IPython.core.display.Javascript</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="G2.Chart.scale">
 <code class="sig-name descname">scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variable</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.scale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure scale</p>
-<p>variable: string, corresponding variable
-config: xxargs, configurations for the coordinate system</p>
-<p>Chart</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable</strong> (<em>str</em><em>, </em><em>corresponding variable</em>) – </p></li>
+<li><p><strong>config</strong> (<em>xxargs</em><em>, </em><em>configurations for the coordinate system</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#G2.Chart" title="G2.Chart">Chart</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="G2.Chart.tooltip">
 <code class="sig-name descname">tooltip</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.Chart.tooltip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure tooltip</p>
-<p>config: xxargs, configurations of tooltip</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>xxargs</em><em>, </em><em>configurations of tooltip</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -219,8 +319,17 @@ config: xxargs, configurations for the coordinate system</p>
 <dt id="G2.ChartItem.get_aes_function">
 <code class="sig-name descname">get_aes_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">aes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.ChartItem.get_aes_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attach corresponding aesthetic function</p>
-<p>aes: string, name of the aesthatic function</p>
-<p>aesthetic function of that name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aes</strong> (<em>str</em><em>, </em><em>name of the aesthatic function</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>aesthetic function of that name</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -239,8 +348,17 @@ config: xxargs, configurations for the coordinate system</p>
 <dt id="G2.CoordinateControl.get_coord_function">
 <code class="sig-name descname">get_coord_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.CoordinateControl.get_coord_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get coordinate system transformation functions</p>
-<p>name: string, name of the coordinate transformation</p>
-<p>function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em>, </em><em>name of the coordinate transformation</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -249,18 +367,51 @@ config: xxargs, configurations for the coordinate system</p>
 <dt id="G2.get_notebook_code">
 <code class="sig-prename descclassname">G2.</code><code class="sig-name descname">get_notebook_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">code</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.get_notebook_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a javascript code safe to run on notebook (make <cite>element</cite> unambigous)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>code</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="G2.get_pyG2_code">
 <code class="sig-prename descclassname">G2.</code><code class="sig-name descname">get_pyG2_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plain_code</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.get_pyG2_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make G2 library accessible for a code snippet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plain_code</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="G2.run_code">
 <code class="sig-prename descclassname">G2.</code><code class="sig-name descname">run_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">notebook_code</span></em><span class="sig-paren">)</span><a class="headerlink" href="#G2.run_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run a javascript code and display output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>notebook_code</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>IPython.core.display.Javascript</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
