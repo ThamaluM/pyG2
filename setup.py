@@ -10,7 +10,7 @@ setuptools.setup(
     long_description = Path("README.md").read_text(),
     long_description_content_type = "text/markdown",
     url = "https://github.com/ThamaluM/pyG2",
-    packages = setuptools.find_packages(exclude=['test','.git','examples']),
+    packages = setuptools.find_packages(exclude=['test','.git','examples','docs']),
     classifiers=[
         "Programming Language :: Python ",
         "License :: OSI Approved :: MIT License",

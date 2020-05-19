@@ -27,6 +27,11 @@ Author
 =======
 Thamalu Maliththa Piyadigama, University of Moratuwa.
 
+Home URL
+=========
+
+https://github.com/ThamaluM/pyG2
+
 API
 =====
 .. toctree::
