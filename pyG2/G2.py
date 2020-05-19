@@ -161,6 +161,10 @@ class ChartItem:
             values: xargs [optional], values of that aesthetic 
             config: xxargs, configuration details
 
+            Return
+            ==========
+            ChartItem
+
             '''
             if config:
                 self.item_code += "."+aes+"('%s',%s)"%(map,config)
@@ -171,6 +175,22 @@ class ChartItem:
                     self.item_code += "."+aes+"('%s')"%map
             return self
         return aestatic
+
+    def style(self,**config):
+        ''' 
+        Configure style of the chart geometry object
+
+        Parameters
+        ===========
+        config: xxargs, configuration details
+
+        Return
+        ========
+        ChartItem
+        
+        '''
+        self.item_code += ".style"+"(%s)"%config
+        return self
 
     
     
