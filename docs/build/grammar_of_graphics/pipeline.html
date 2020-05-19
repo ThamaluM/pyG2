@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Graphic Generation Pipeline &#8212; pyG2 0.0a0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial" href="../tutorial.html" />
+    <link rel="prev" title="Six Specification statements" href="six_elements.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="graphic-generation-pipeline">
+<h1>Graphic Generation Pipeline<a class="headerlink" href="#graphic-generation-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>Leland Wilkinson identified that there is a pipelined process in graphic generation.</p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/pipeline.png" src="../_images/pipeline.png" />
+<p class="caption"><span class="caption-text">Fair use: taken from <strong>The Grammar of Graphics</strong> of Leland Wilkinson</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="source">
+<h2>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h2>
+<p>The data source</p>
+</div>
+<div class="section" id="variable">
+<h2>Variable<a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h2>
+<p>Variable represents a property of an object.</p>
+</div>
+<div class="section" id="algebra">
+<h2>Algebra<a class="headerlink" href="#algebra" title="Permalink to this headline">¶</a></h2>
+<p>Varset algebra: there are operations between varsets. (e.g. cross, nest, blend)</p>
+<p>This concept is not properly adopted into G2. Therefore it is not included in pyG2 also.
+map of variables is closely related to cross operation. e.g <code class="docutils literal notranslate"><span class="pre">name*cyl</span></code></p>
+</div>
+<div class="section" id="scales">
+<h2>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">¶</a></h2>
+<p>Scales are mapping values of the variables to dimensions of a coordinate system.</p>
+</div>
+<div class="section" id="statistics">
+<h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
+<p>More oftenly what we want to visualize in the graphic is differs from raw data points. (Remember linear regression)
+Therefore statistics is to alter positions of data points.</p>
+</div>
+<div class="section" id="geometry">
+<h2>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h2>
+<p>Geometry is to map data with unbounded dimensions into bounded graph dimensions.</p>
+</div>
+<div class="section" id="coordinate">
+<h2>Coordinate<a class="headerlink" href="#coordinate" title="Permalink to this headline">¶</a></h2>
+<p>Coordinates are coordinates of the graph space.</p>
+</div>
+<div class="section" id="aesthetics">
+<h2>Aesthetics<a class="headerlink" href="#aesthetics" title="Permalink to this headline">¶</a></h2>
+<p>Aesthetics are the observable physical properties of the graphics.</p>
+</div>
+<div class="section" id="renderer">
+<h2>Renderer<a class="headerlink" href="#renderer" title="Permalink to this headline">¶</a></h2>
+<p>Renderer generates the graphic</p>
+</div>
+</div>
+<div class="section" id="variable-vs-varset">
+<h1>Variable vs. Varset<a class="headerlink" href="#variable-vs-varset" title="Permalink to this headline">¶</a></h1>
+<p>To define a variable we need three things.</p>
+<ol class="arabic simple">
+<li><p>Set of objects</p></li>
+<li><p>Set of values</p></li>
+<li><p>Function mapping objects to values</p></li>
+</ol>
+<p>To define a varset we need,</p>
+<ol class="arabic simple">
+<li><p>Set of values</p></li>
+<li><p>Set of objects</p></li>
+<li><p>Function mapping values to objects</p></li>
+</ol>
+<p>What is the difference? In varsets value has more priority than objects.
+In a graph basically we represent values. An object may be a certain data point. Coordinates are values.
+Therefore graphs are made of varsets.</p>
+</div>
+<div class="section" id="graph-vs-graphic">
+<h1>Graph vs. Graphic<a class="headerlink" href="#graph-vs-graphic" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Graph is a mathematical representaion of a bounded multidimentional space. A graph is an abstract entity.</p></li>
+<li><p>Graphic is to represent a graph in observable physical properties (aesthetics) such as position, color, shape.</p></li>
+</ul>
+</div>
+<div class="section" id="explanation-of-pipeline">
+<h1>Explanation of Pipeline<a class="headerlink" href="#explanation-of-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>Pipeline is the process of generating any graphic. First we have to get data from a source. Then we have to create variables
+and turn them into varsets. Then using varset algebra we create complex varsets. Thereafter you have to map variable into a
+dimension. (Dimension gives a direction or order to the values.) Then you have to alter positions of the data points to
+find the points that are to be visualized in the graphic. Upto here we worked with arbitrary dimension. Then we should
+specify coordinate system related to the graphic space. Then we can choose aesthetic to visualize the graph. Finally we
+render the graph through a rendering mechanism.</p>
+<p>We cannot by-pass these steps. This is the way we naturally generate a graphic visualization.</p>
+<p>Wilikinson suggested to go through this pipeline and to provide functions to work on relevent steps of the pipeline instead
+of giving ad hoc functions for certain chart types.</p>
+<p>Instead of providing list of specific usages, this architecture provides <strong>a grammar</strong> to generate any graphic as you wish.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">pyG2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Create Your First Chart with pyG2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../gog.html">Grammar of Graphics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="three_steps.html">Three Steps of Grammar of Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="six_elements.html">Six Specification statements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Graphic Generation Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variable-vs-varset">Variable vs. Varset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graph-vs-graphic">Graph vs. Graphic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explanation-of-pipeline">Explanation of Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../gog.html">Grammar of Graphics</a><ul>
+      <li>Previous: <a href="six_elements.html" title="previous chapter">Six Specification statements</a></li>
+      <li>Next: <a href="../tutorial.html" title="next chapter">Tutorial</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Thamalu Maliththa Piyadigama.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/grammar_of_graphics/pipeline.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

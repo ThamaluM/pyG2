@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Six Specification statements &#8212; pyG2 0.0a0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Graphic Generation Pipeline" href="pipeline.html" />
+    <link rel="prev" title="Three Steps of Grammar of Graphics" href="three_steps.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="six-specification-statements">
+<h1>Six Specification statements<a class="headerlink" href="#six-specification-statements" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Data</p></li>
+<li><p>Transformations</p></li>
+<li><p>Scale</p></li>
+<li><p>Coordinate</p></li>
+<li><p>Element</p></li>
+<li><p>Guide</p></li>
+</ol>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>In pyG2, data should be specified as a list of dictionaries or as a pandas.DataFrame object.</p>
+</div>
+<div class="section" id="transformations">
+<h2>Transformations<a class="headerlink" href="#transformations" title="Permalink to this headline">¶</a></h2>
+<p>Data transformations should be done beforehand you provide them to the Chart object. You can use pandas.DataFrame to obtain
+these transformations.</p>
+</div>
+<div class="section" id="scales">
+<h2>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Chart.scale(variable,</span> <span class="pre">**config)</span></code> is used to specify the scale and scale transformations.</p>
+</div>
+<div class="section" id="coordinate">
+<h2>Coordinate<a class="headerlink" href="#coordinate" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Chart.coordinate(variable,</span> <span class="pre">**config)</span></code> is used to specify the coordinate system and coordinate transformations.</dt><dd><p>Default is Cartesian coordinates.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="element">
+<h2>Element<a class="headerlink" href="#element" title="Permalink to this headline">¶</a></h2>
+<p>In pyG2 chart elements are named geometry. They are the main components of the graphic: line in line chart, bar in bar chart etc.</p>
+</div>
+<div class="section" id="guides">
+<h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
+<p>In G2, guides are legends, tooltips and annotations. They are the auxillary components of a chart that helps the user to understand the chart
+easily.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">pyG2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Create Your First Chart with pyG2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="three_steps.html">Three Steps of Grammar of Graphics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Six Specification statements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transformations">Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scales">Scales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coordinate">Coordinate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#element">Element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides">Guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline.html">Graphic Generation Pipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="three_steps.html" title="previous chapter">Three Steps of Grammar of Graphics</a></li>
+      <li>Next: <a href="pipeline.html" title="next chapter">Graphic Generation Pipeline</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Thamalu Maliththa Piyadigama.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/grammar_of_graphics/six_elements.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

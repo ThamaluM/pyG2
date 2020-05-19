@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Create Your First Chart with pyG2 &#8212; pyG2 0.0a0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Three Steps of Grammar of Graphics" href="grammar_of_graphics/three_steps.html" />
+    <link rel="prev" title="Welcome to pyG2’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="create-your-first-chart-with-pyg2">
+<h1>Create Your First Chart with pyG2<a class="headerlink" href="#create-your-first-chart-with-pyg2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pyG2</span></code></p>
+<p>pyG2 only supports jupyter notebook. (Jupyterlab and Colab is not still supported.)</p>
+<ul>
+<li><p>Open jupyter notebook and create a new notebook file.</p></li>
+<li><p>Import G2 module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyG2</span> <span class="kn">import</span> <span class="n">G2</span>
+</pre></div>
+</div>
+</li>
+<li><p>Prepare the data set (Details of several cars from <em>mtcars</em> dataset):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span><span class="p">[</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Mazda RX4&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">21.0</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Mazda RX4 Wag&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">21.0</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Datsun 710&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">22.8</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Hornet 4 Drive&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">21.4</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Hornet Sportabout&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">18.7</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Valiant&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">18.1</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Duster 360&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">14.3</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Merc 240D&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">24.4</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Merc 230&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">22.8</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Merc 280&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="mf">19.2</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create the chart (Number of cylinders of each car):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*cyl&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Output:</p>
+<img alt="_images/first.png" src="_images/first.png" />
+</div>
+<div class="section" id="explaination-of-code">
+<h2>Explaination of code<a class="headerlink" href="#explaination-of-code" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">G2.Chart()</span></code> generates a chart object which holds details of the chart. Height and weight are optional. (Default is 500pt, 400pt).</p>
+<p><code class="docutils literal notranslate"><span class="pre">chart.data(data)</span></code> provides data to the chart. There are two supported data formats: list of dictionaries as in the example or pandas.DataFrame.
+(Latter is recommended.)</p>
+<p><code class="docutils literal notranslate"><span class="pre">chart.interval().position('name*cyl')</span></code> specifies geometry and aesthetics of the chart. <code class="docutils literal notranslate"><span class="pre">'name*cyl'</span></code> is the map that is
+represented in the chart. It is represented as a position. We choose interval geometry (bars) to visualize the chart.</p>
+<p><code class="docutils literal notranslate"><span class="pre">chart.render()</span></code> renders the chart to the notebook output.</p>
+</div>
+<div class="section" id="try-other-geometries">
+<h2>Try Other Geometries<a class="headerlink" href="#try-other-geometries" title="Permalink to this headline">¶</a></h2>
+<p>Use this code to generate a line chart:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*cyl&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl>
+<dt>Output:</dt><dd><img alt="_images/first_line.png" src="_images/first_line.png" />
+</dd>
+</dl>
+<p>Try <code class="docutils literal notranslate"><span class="pre">area</span></code>, <code class="docutils literal notranslate"><span class="pre">point</span></code> plots. <strong>Hint: Change</strong> <code class="docutils literal notranslate"><span class="pre">line</span></code> <strong>in above code to these words.</strong></p>
+</div>
+<div class="section" id="multiple-plots">
+<h2>Multiple plots<a class="headerlink" href="#multiple-plots" title="Permalink to this headline">¶</a></h2>
+<p>We shall create two graphs in one chart.</p>
+<ol class="arabic simple">
+<li><p>Name vs. Miles for Galon (mpg) : line</p></li>
+<li><p>Name vs. No. of Cylinders (cyl) : interval (bar)</p></li>
+</ol>
+<p>code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*cyl&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><img alt="_images/first_multi.png" src="_images/first_multi.png" />
+</div></blockquote>
+<p><strong>Read our tutorials to learn how to generate various types of charts</strong></p>
+<p><strong>Special Note:</strong></p>
+<p>If graphs are not visible when the notebook reloads, restart the kernal and run the code again.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">pyG2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create Your First Chart with pyG2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explaination-of-code">Explaination of code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#try-other-geometries">Try Other Geometries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-plots">Multiple plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grammar_of_graphics/three_steps.html">Three Steps of Grammar of Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammar_of_graphics/six_elements.html">Six Specification statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammar_of_graphics/pipeline.html">Graphic Generation Pipeline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to pyG2’s documentation!</a></li>
+      <li>Next: <a href="grammar_of_graphics/three_steps.html" title="next chapter">Three Steps of Grammar of Graphics</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Thamalu Maliththa Piyadigama.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/quickstart.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

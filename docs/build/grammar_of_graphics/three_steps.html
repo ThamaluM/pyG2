@@ -7,6 +7,7 @@
     <title>Three Steps of Grammar of Graphics &#8212; pyG2 0.0a0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -14,8 +15,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API" href="../api.html" />
-    <link rel="prev" title="Welcome to pyG2’s documentation!" href="../index.html" />
+    <link rel="next" title="Six Specification statements" href="six_elements.html" />
+    <link rel="prev" title="Create Your First Chart with pyG2" href="../quickstart.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -34,17 +35,41 @@
             
   <div class="section" id="three-steps-of-grammar-of-graphics">
 <h1>Three Steps of Grammar of Graphics<a class="headerlink" href="#three-steps-of-grammar-of-graphics" title="Permalink to this headline">¶</a></h1>
+<p>Charting graphic generation is a systematic process. There are three steps in graphic generation.</p>
 <div class="section" id="specification">
 <h2>Specification<a class="headerlink" href="#specification" title="Permalink to this headline">¶</a></h2>
-<p>Say how the graph should be created</p>
+<p>Describe how the graph should be created. We have to specify six elements of the chart.</p>
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
-<p>Construct related objects and communication between them.</p>
+<p>Construct related objects and communication between them. You do not have to worry about this. This is what chart library
+does. When your code runs set of objects are constructed and the graphic or the chart is created through the communication
+of these objects.</p>
 </div>
 <div class="section" id="rendering">
 <h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this headline">¶</a></h2>
-<p>Show graphics to the user</p>
+<p>Show graphics to the user.</p>
+<p>PyG2 supports two rendering methods</p>
+<ol class="arabic simple">
+<li><p><strong>Canvas rendering</strong>: Graphic is rendered as in a raster format.</p></li>
+<li><p><strong>SVG rendering</strong>: Graphic is rendered in a vector format.</p></li>
+</ol>
+<p>Raster format stores a picture as a matrix of pixels (like painting) while vector formats stores details on
+mathematical formulaes that generate the parts of the picture (like drawing the picture).</p>
+<p>Vector formats are scalable without blurring. However when the number of elements in the graphic is very higher it will
+take more time to render the image. You can read more about it in the internet.</p>
+<ul>
+<li><p>To specify canvas rendering (default):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;canvas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>To specify svg rendering:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 
@@ -67,12 +92,15 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Create Your First Chart with pyG2</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Three Steps of Grammar of Graphics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#specification">Specification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rendering">Rendering</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="six_elements.html">Six Specification statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline.html">Graphic Generation Pipeline</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
@@ -82,8 +110,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to pyG2’s documentation!</a></li>
-      <li>Next: <a href="../api.html" title="next chapter">API</a></li>
+      <li>Previous: <a href="../quickstart.html" title="previous chapter">Create Your First Chart with pyG2</a></li>
+      <li>Next: <a href="six_elements.html" title="next chapter">Six Specification statements</a></li>
   </ul></li>
 </ul>
 </div>

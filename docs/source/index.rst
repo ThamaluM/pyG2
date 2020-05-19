@@ -20,10 +20,8 @@ generation. With grammar of graphics we can switch to a logical way of specifyin
    :caption: Contents:
 
    quickstart
-   grammar_of_graphics/three_steps
-   grammar_of_graphics/six_elements
-   grammar_of_graphics/pipeline
-   Tutorial
+   gog
+   tutorial
 
 Author
 =======
