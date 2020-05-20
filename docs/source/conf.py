@@ -22,7 +22,7 @@ copyright = '2020, Thamalu Maliththa Piyadigama'
 author = 'Thamalu Maliththa Piyadigama'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0a0'
+release = '1.0b1'
 
 
 # -- General configuration ---------------------------------------------------
