@@ -1,6 +1,7 @@
 from IPython.display import Javascript, display_html
 import pandas as pd
 import pkgutil
+import os
 
 
 # Coded by Thamalu Maliththa Piyadigama
@@ -93,7 +94,8 @@ def run_code(notebook_code):
     return Javascript(notebook_code)
 
 # Load G2 into notebook
-g2_source = pkgutil.get_data("G2", 'g2/g2.min.js').decode("utf-8")
+path = os.path.join('g2','g2/g2.min.js')
+g2_source = pkgutil.get_data("G2", path).decode("utf-8")
 display_html(loading_code_1%g2_source,raw=True)
 #display_html(loading_code,raw=True)
 
