@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Scales &#8212; pyG2 0.0a0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="geom_aes.html" />
+    <link rel="prev" title="Tutorial" href="../tutorial.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="scales">
+<h1>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">¶</a></h1>
+<p>format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="nb">min</span><span class="p">,</span><span class="nb">max</span><span class="p">,</span><span class="n">values</span><span class="p">,</span><span class="nb">range</span><span class="p">,</span><span class="n">tickCount</span><span class="p">,</span><span class="n">formatter</span><span class="p">,</span><span class="n">tickMethod</span><span class="p">,</span><span class="n">alias</span><span class="p">,</span><span class="n">nice</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>variables are optional.</p>
+<p>e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">point</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;wt*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;wt&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;pow&#39;</span><span class="p">,</span><span class="n">exponent</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span><span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/scale.png" src="../_images/scale.png" />
+<p>There are several types. These type requires additional <strong>optional</strong> arguments.</p>
+<p>types:</p>
+<blockquote>
+<div><p>cat: classification metric</p>
+<p>timeCat: time classification metrics</p>
+<p>linear: linear metric</p>
+<p>time: continuous time measurement</p>
+<p>log: log metrics</p>
+<p>pow: pow measure</p>
+<p>quantize: segmentation metric, user can specify uneven segmentation</p>
+<p>quantile: equal measure, automatically calculate the segment according to the distribution of data</p>
+<p>identity: constant measure</p>
+</div></blockquote>
+<p>There are suitable defaults according to the nature of data if you do not specify manually.</p>
+<blockquote>
+<div><p>alias: string , name of the axis</p>
+<p>values: domain</p>
+<p>range: [min,max]</p>
+<p>formatter: a javascript function definition as a string</p>
+<p>tickCount: number of ticks</p>
+<p>tickMethod: a javascript function definition as a string to calculate ticks.</p>
+<p>nice: ‘true’/’false’ nice numbers</p>
+</div></blockquote>
+<p><strong>additional:</strong></p>
+<blockquote>
+<div><p>base: base for type <code class="docutils literal notranslate"><span class="pre">log</span></code></p>
+<p>exponent: exponent for typ <code class="docutils literal notranslate"><span class="pre">pow</span></code></p>
+<p>ticks: list of values for ticks in <code class="docutils literal notranslate"><span class="pre">quantize</span></code></p>
+</div></blockquote>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">pyG2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Create Your First Chart with pyG2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gog.html">Grammar of Graphics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#data-preperation">Data preperation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#chart-layout-configuration">Chart Layout Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#variable-maps">Variable Maps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tutorial.html#main-topics">Main Topics</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../tutorial.html">Tutorial</a><ul>
+      <li>Previous: <a href="../tutorial.html" title="previous chapter">Tutorial</a></li>
+      <li>Next: <a href="geom_aes.html" title="next chapter">&lt;no title&gt;</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Thamalu Maliththa Piyadigama.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/tutor/scales.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

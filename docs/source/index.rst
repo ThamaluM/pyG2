@@ -23,12 +23,15 @@ generation. With grammar of graphics we can switch to a logical way of specifyin
    gog
    tutorial
 
+Project Details
+====================
+
 Author
-=======
+------------
 Thamalu Maliththa Piyadigama, University of Moratuwa.
 
 Home URL
-=========
+------------
 
 https://github.com/ThamaluM/pyG2
 

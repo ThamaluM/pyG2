@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Coordinates &#8212; pyG2 0.0a0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Legends" href="legends.html" />
+    <link rel="prev" title="Geometry and Aesthetic" href="geom_aes.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="coordinates">
+<h1>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h1>
+<p>We can specify coordinates as below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are four types.</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">rect</span></code>/ <code class="docutils literal notranslate"><span class="pre">cartesian</span></code>    (x,y):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Output:</p>
+<img alt="../_images/rect_coord.png" src="../_images/rect_coord.png" />
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">polar</span></code>                  (r,theta):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Output:</p>
+<blockquote>
+<div><img alt="../_images/polar_coord.png" src="../_images/polar_coord.png" />
+</div></blockquote>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">theta</span></code>                  (theta,r):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<img alt="../_images/theta_coord.png" src="../_images/theta_coord.png" />
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">helix</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;helix&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Output:</p>
+<img alt="../_images/helix_coord.png" src="../_images/helix_coord.png" />
+<p>There are coordinate transformation functions.</p>
+<ol class="arabic">
+<li><p>transpose</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Output:</p>
+<img alt="../_images/coord_transpose.png" src="../_images/coord_transpose.png" />
+<ol class="arabic">
+<li><p>reflect</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reflect</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Output:</p>
+<img alt="../_images/coord_reflect.png" src="../_images/coord_reflect.png" />
+<ol class="arabic">
+<li><p>rotate:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Output:</p>
+<img alt="../_images/coord_rotate.png" src="../_images/coord_rotate.png" />
+<ol class="arabic">
+<li><p>scale:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*mpg&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">coordinate</span><span class="p">(</span><span class="s1">&#39;rect&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<img alt="../_images/coord_scale.png" src="../_images/coord_scale.png" />
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">pyG2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Create Your First Chart with pyG2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gog.html">Grammar of Graphics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#data-preperation">Data preperation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#chart-layout-configuration">Chart Layout Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#variable-maps">Variable Maps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tutorial.html#main-topics">Main Topics</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../tutorial.html">Tutorial</a><ul>
+      <li>Previous: <a href="geom_aes.html" title="previous chapter">Geometry and Aesthetic</a></li>
+      <li>Next: <a href="legends.html" title="next chapter">Legends</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Thamalu Maliththa Piyadigama.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/tutor/coordinates.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

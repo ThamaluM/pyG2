@@ -1,0 +1,36 @@
+Scales
+###############
+
+format::
+
+    chart.scale(variable,type,min,max,values,range,tickCount,formatter,tickMethod,alias)
+
+variables are optional.
+
+There are several types. These type requires additional **optional** arguments.
+
+
+types:
+
+    cat: classification metric
+    timeCat: time classification metrics
+    linear: linear metric
+    time: continuous time measurement
+    log: log metrics
+    pow: pow measure
+    quantize: segmentation metric, user can specify uneven segmentation
+    quantile: equal measure, automatically calculate the segment according to the distribution of data
+    identity: constant measure
+
+There are suitable defaults according to the nature of data if you do not specify manually.
+
+alias: string , name of the axis
+values: domain 
+range: [min,max]
+formatter: a javascript function definition as a string
+tickmethod: a javascript function definition as a string to calculate ticks.
+
+additional
+
+base: base for type ``log``
+exponent: exponent for typ ``pow``

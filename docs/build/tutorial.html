@@ -15,7 +15,7 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chart Layout" href="tutorial/layout.html" />
+    <link rel="next" title="Scales" href="tutor/scales.html" />
     <link rel="prev" title="Graphic Generation Pipeline" href="grammar_of_graphics/pipeline.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -35,10 +35,83 @@
             
   <div class="section" id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>PyG2 is very logical and commnds are simple when it comes to graphic generations.</p>
+<ul>
+<li><p>Installation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyG2</span>
+</pre></div>
+</div>
+</li>
+<li><p>Open Jupyter Notebook</p></li>
+<li><p>Import modules:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyG2</span> <span class="kn">import</span> <span class="n">pyG2</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+</pre></div>
+</div>
+</li>
+<li><p>In this example we use <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> dataset from <a class="reference external" href="https://vincentarelbundock.github.io/Rdatasets/csv/datasets/mtcars.csv">https://vincentarelbundock.github.io/Rdatasets/csv/datasets/mtcars.csv</a> Download CSV file, save it in the same folder as the notebook and change the header of the first column to <strong>name</strong></p></li>
+<li><p>Prepare a Panda DataFrame:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;mtcars.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<dl class="simple">
+<dt>Columns are ‘name’, ‘mpg’, ‘cyl’, ‘disp’, ‘hp’, ‘drat’, ‘wt’, ‘qsec’, ‘vs’, ‘am’,</dt><dd><p>‘gear’ and ‘carb’.</p>
+</dd>
+</dl>
+<div class="section" id="data-preperation">
+<h2>Data preperation<a class="headerlink" href="#data-preperation" title="Permalink to this headline">¶</a></h2>
+<p>Data should be processed by panda dataframe if any transformation presents.</p>
+</div>
+<div class="section" id="chart-layout-configuration">
+<h2>Chart Layout Configuration<a class="headerlink" href="#chart-layout-configuration" title="Permalink to this headline">¶</a></h2>
+<p>We have to construct a graph object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">Chart</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">autoFit</span><span class="p">,</span> <span class="n">limitInPlot</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">pixelRatio</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="n">visible</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All parameters are optional.</p>
+<blockquote>
+<div><p>height: int (ppt)  (default 500)</p>
+<p>width: int (ppt)   (default 400)</p>
+<p>autoFit: ‘true’ / ‘false’ (default ‘true’)      <strong>‘true’ (str) not True (bool)</strong></p>
+<p>limitInPlot: ‘true’ / ‘false’ (default ‘false’)</p>
+<p>padding: int/ [int,int,int,int]</p>
+<p>pixelRatio: int    (pixelRatio for canvas rendering)</p>
+<p>render: ‘canvas’/’svg’</p>
+<p>visible: ‘true’/’false’</p>
+</div></blockquote>
+<ul>
+<li><p>Display changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>All other codes comes between Chart object construction and rendering steps.</strong></p>
+</div>
+<div class="section" id="variable-maps">
+<h2>Variable Maps<a class="headerlink" href="#variable-maps" title="Permalink to this headline">¶</a></h2>
+<p>One dimension map: e.g. <code class="docutils literal notranslate"><span class="pre">name</span></code>
+Two dimensional variable map: e.g <code class="docutils literal notranslate"><span class="pre">name*cyl</span></code></p>
+</div>
+<div class="section" id="main-topics">
+<h2>Main Topics<a class="headerlink" href="#main-topics" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/layout.html">Chart Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutor/scales.html">Scales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutor/axis.html">Axis Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutor/geom_aes.html">Geometry and Aesthetic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutor/geom_aes.html#geometry">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutor/geom_aes.html#aesthetics">Aesthetics</a></li>
 </ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutor/coordinates.html">Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutor/legends.html">Legends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutor/annotations.html">Annotations</a></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -64,7 +137,10 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Create Your First Chart with pyG2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gog.html">Grammar of Graphics</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/layout.html">Chart Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-preperation">Data preperation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chart-layout-configuration">Chart Layout Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variable-maps">Variable Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-topics">Main Topics</a></li>
 </ul>
 </li>
 </ul>
@@ -77,7 +153,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="grammar_of_graphics/pipeline.html" title="previous chapter">Graphic Generation Pipeline</a></li>
-      <li>Next: <a href="tutorial/layout.html" title="next chapter">Chart Layout</a></li>
+      <li>Next: <a href="tutor/scales.html" title="next chapter">Scales</a></li>
   </ul></li>
 </ul>
 </div>
