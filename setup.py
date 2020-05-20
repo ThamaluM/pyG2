@@ -12,6 +12,7 @@ setuptools.setup(
     url = "https://github.com/ThamaluM/pyG2",
     packages = setuptools.find_packages(exclude=['test','.git','examples','docs']),
     install_requires=["ipython", "pandas"],
+    package_data = {"pyG2":["*.js"]},
     include_package_data=True,
     classifiers=[
         "Programming Language :: Python ",
