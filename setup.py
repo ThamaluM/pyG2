@@ -11,6 +11,8 @@ setuptools.setup(
     long_description_content_type = "text/markdown",
     url = "https://github.com/ThamaluM/pyG2",
     packages = setuptools.find_packages(exclude=['test','.git','examples','docs']),
+    install_requires=["ipython", "pandas"],
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python ",
         "License :: OSI Approved :: MIT License",
