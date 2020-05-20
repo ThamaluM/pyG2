@@ -4,7 +4,7 @@ from pathlib import Path
 setuptools.setup(
 
     name = "pyG2",
-    version = "1.0beta0",
+    version = "1.0beta1",
     author = "Thamalu Maliththa Piyadigama",
     description = "Grammar of graphics for python",
     long_description = Path("README.md").read_text(),
