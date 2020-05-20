@@ -94,8 +94,10 @@ def run_code(notebook_code):
     return Javascript(notebook_code)
 
 # Load G2 into notebook
-path = os.path.join('pyG2','g2/g2.min.js')
-g2_source = pkgutil.get_data("G2", path).decode("utf-8")
+with open('g2/g2.min.js') as file:
+    g2_source = file.read()
+# path = os.path.join('pyG2','g2/g2.min.js')
+# g2_source = pkgutil.get_data("G2", path).decode("utf-8")
 display_html(loading_code_1%g2_source,raw=True)
 #display_html(loading_code,raw=True)
 
