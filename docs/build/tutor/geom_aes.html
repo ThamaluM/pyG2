@@ -158,9 +158,19 @@ name to <code class="docutils literal notranslate"><span class="pre">z</span></c
 </div>
 </div>
 </div>
+<div class="section" id="label">
+<h2>Label<a class="headerlink" href="#label" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="collision-handelling">
 <h2>Collision Handelling<a class="headerlink" href="#collision-handelling" title="Permalink to this headline">¶</a></h2>
-<p>This part has to be completed.</p>
+<p>Sometimes several parts of the graphs collides, that is to say locate in the overlapping positions.
+We can fix this by <code class="docutils literal notranslate"><span class="pre">adjust()</span></code></p>
+<p>There are several <code class="docutils literal notranslate"><span class="pre">adjust</span></code> types. <code class="docutils literal notranslate"><span class="pre">stack</span></code> to make colliding parts in a stack. <code class="docutils literal notranslate"><span class="pre">dodge</span></code> to present them
+horizontally packed. <code class="docutils literal notranslate"><span class="pre">jitter</span></code> in point maps to show them as a cluster.</p>
+<p>The collisions of labels can be handled using <code class="docutils literal notranslate"><span class="pre">overlap</span></code> and <code class="docutils literal notranslate"><span class="pre">fixed-overlap</span></code>.</p>
 </div>
 </div>
 

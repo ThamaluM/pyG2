@@ -41,6 +41,7 @@ Supported shapes are
 
 ('hv',' vh', 'hvh',' vhv' are used for ladder diagrams) 
 
+
 area
 -----------------
 ::
@@ -171,8 +172,20 @@ size
 
     chart.<geometry>().position('x,y').size('z')
 
+Label
+=======
+
+::
+
+    chart.<geometry>().position('x,y').label('z')
 
 Collision Handelling
 =======================
 
-This part has to be completed.
+Sometimes several parts of the graphs collides, that is to say locate in the overlapping positions.
+We can fix this by ``adjust()``
+
+There are several ``adjust`` types. ``stack`` to make colliding parts in a stack. ``dodge`` to present them
+horizontally packed. ``jitter`` in point maps to show them as a cluster.
+
+The collisions of labels can be handled using ``overlap`` and ``fixed-overlap``.
