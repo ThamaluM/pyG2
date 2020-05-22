@@ -151,7 +151,7 @@ color
 
     chart.<geometry>().position('x,y').color('z')
 
-    or
+or
 
 ::
 
