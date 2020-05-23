@@ -50,6 +50,16 @@
 <p>‘circle’, ‘square’, ‘bowtie’, ‘diamond’, ‘hexagon’, ‘triangle’, ‘triangle-down’, ‘hollow-circle’, ‘hollow-square’,
 ‘hollow-bowtie’, ‘hollow-diamond’, ‘hollow-hexagon’, ‘hollow-triangle’, ‘hollow-triangle-down’, ‘cross’,
 ‘tick’, ‘plus’, ‘hyphen’, ‘line’</p>
+<p>e.g. Different shapes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">point</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*cyl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;hp&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/point_Shapes.png" src="../_images/point_Shapes.png" />
 </div>
 <div class="section" id="line">
 <h3>line<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h3>
@@ -62,7 +72,21 @@ aesthetics are used then there will be several lines related to each aesthetic.<
 <blockquote>
 <div><p>‘line’,’ dot’, ‘dash’,’ smooth’, ‘hv’,’ vh’, ‘hvh’,’ vhv’</p>
 </div></blockquote>
-<p>(‘hv’,’ vh’, ‘hvh’,’ vhv’ are used for ladder diagrams)</p>
+<p>(‘hv’,’ vh’, ‘hvh’,’ vhv’ are used for ladder diagrams: h horizontal, v vertical)</p>
+<p>e.g. Some line shapes comparison:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*wt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;smooth&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*wt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;line&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*wt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;vh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><img alt="../_images/line_shapes.png" src="../_images/line_shapes.png" />
+</div></blockquote>
 </div>
 <div class="section" id="area">
 <h3>area<a class="headerlink" href="#area" title="Permalink to this headline">¶</a></h3>
@@ -77,6 +101,21 @@ Supported shapes are</p>
 <blockquote>
 <div><p>‘area’, ‘smooth’, ‘line’, ‘smooth-line’</p>
 </div></blockquote>
+<p>(when line and smooth-line is used the area is not filled - only the border.)</p>
+<p>e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">}]</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">area</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*y&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">area</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><img alt="../_images/area.png" src="../_images/area.png" />
+</div></blockquote>
 <p><strong>N.B:</strong></p>
 <p><strong>If we use lists in lines and points then there will be several lines and points for each record.</strong></p>
 </div>
@@ -89,6 +128,29 @@ Supported shapes are</p>
 If <code class="docutils literal notranslate"><span class="pre">y</span></code> is a list then the interval is between two y values is the interval.
 If <code class="docutils literal notranslate"><span class="pre">x</span></code> is a single value the is of a default fixed width bar at (x,y)
 If <code class="docutils literal notranslate"><span class="pre">x</span></code> is a list then the interval is a bar spreaded between first and second value of the list.</p>
+<p>e.g</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">}]</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*y&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/interval.png" src="../_images/interval.png" />
+<p>Another example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">}]</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;y*z&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/interval_range.png" src="../_images/interval_range.png" />
 <p>Supported shapes are</p>
 <p>‘rect’, ‘hollow-rect’, ‘line’, ‘tick’, ‘funnel’, ‘pyramid’</p>
 <p>‘funnel’ is for funnel chart.
@@ -102,6 +164,34 @@ If <code class="docutils literal notranslate"><span class="pre">x</span></code> 
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are lists such that corresponding values of two lists gives coordinates of the vertices.
 (Vertices are connected as they are ordered in two lists.)</p>
 <p>Shape and size aesthetics are not related to polygons.</p>
+<p>e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">]},{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]}]</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">polygon</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*y&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/polygon.png" src="../_images/polygon.png" />
+</div>
+<div class="section" id="edge">
+<h3>edge<a class="headerlink" href="#edge" title="Permalink to this headline">¶</a></h3>
+<p>Edge connects the points specified in two lists for x coordinates and y coordinates.</p>
+<p>e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">]},{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]}]</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">edge</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*y&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><img alt="../_images/edge.png" src="../_images/edge.png" />
+</div></blockquote>
 </div>
 <div class="section" id="schema">
 <h3>schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h3>
@@ -113,6 +203,19 @@ If <code class="docutils literal notranslate"><span class="pre">x</span></code> 
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> is categorical variable and <code class="docutils literal notranslate"><span class="pre">y</span></code> is an array of values.</p>
 <p>Supported shapes:</p>
 <p>‘box’</p>
+<p>e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]},{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]}]</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">schema</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<blockquote>
+<div><img alt="../_images/box.png" src="../_images/box.png" />
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="aesthetics">
@@ -131,20 +234,49 @@ If <code class="docutils literal notranslate"><span class="pre">x</span></code> 
 </div>
 <p>If we put a specific shape to <code class="docutils literal notranslate"><span class="pre">z</span></code> that given under geometries the geometry will take that shape. If we give a variable
 name to <code class="docutils literal notranslate"><span class="pre">z</span></code> the shape will change with the value of that variable.</p>
-<p>As below we can specify list of shapes we want to use as an optional argument</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="n">values</span><span class="p">)</span>
+<p>As below we can specify shapes we want to use as an optional argument</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x*y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="o">*</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">point</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*cyl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s1">&#39;cyl&#39;</span><span class="p">,</span><span class="s1">&#39;circle&#39;</span><span class="p">,</span><span class="s1">&#39;square&#39;</span><span class="p">,</span><span class="s1">&#39;triangle&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/shapes.png" src="../_images/shapes.png" />
 </div>
 <div class="section" id="color">
 <h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>or</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="n">values</span><span class="p">)</span>
+<p>e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*cyl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;hp&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 </pre></div>
 </div>
+<img alt="../_images/colors.png" src="../_images/colors.png" />
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="o">*</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*cyl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;hp&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/color_range.png" src="../_images/color_range.png" />
+<p>The colour range is prepared by interpolation. Therefore if you put ‘white’ and ‘black’ you can get a greyscale chart.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -155,6 +287,23 @@ name to <code class="docutils literal notranslate"><span class="pre">z</span></c
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The size can be changed according to a field or you can specify a definite value to the size.</p>
+<img alt="../_images/size.png" src="../_images/size.png" />
+<p>Another example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;name*cyl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/size_const.png" src="../_images/size_const.png" />
 </div>
 </div>
 <div class="section" id="label">
@@ -162,6 +311,28 @@ name to <code class="docutils literal notranslate"><span class="pre">z</span></c
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.&lt;</span><span class="n">geometry</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">point</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;mpg*hp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/label.png" src="../_images/label.png" />
+<p>You can see this label is little messy this can be handled this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">point</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;mpg*hp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s1">&#39;fixed-overlap&#39;</span><span class="p">})</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/label_overlap.png" src="../_images/label_overlap.png" />
+<p><code class="docutils literal notranslate"><span class="pre">fixed-overlap</span></code> remove some of the labels to make the graph clear. Use <code class="docutils literal notranslate"><span class="pre">overlap</span></code> to reposition colliding labels
+without  removing any.</p>
 </div>
 <div class="section" id="collision-handelling">
 <h2>Collision Handelling<a class="headerlink" href="#collision-handelling" title="Permalink to this headline">¶</a></h2>
@@ -169,7 +340,39 @@ name to <code class="docutils literal notranslate"><span class="pre">z</span></c
 We can fix this by <code class="docutils literal notranslate"><span class="pre">adjust()</span></code></p>
 <p>There are several <code class="docutils literal notranslate"><span class="pre">adjust</span></code> types. <code class="docutils literal notranslate"><span class="pre">stack</span></code> to make colliding parts in a stack. <code class="docutils literal notranslate"><span class="pre">dodge</span></code> to present them
 horizontally packed. <code class="docutils literal notranslate"><span class="pre">jitter</span></code> in point maps to show them as a cluster.</p>
-<p>The collisions of labels can be handled using <code class="docutils literal notranslate"><span class="pre">overlap</span></code> and <code class="docutils literal notranslate"><span class="pre">fixed-overlap</span></code>.</p>
+<p>e.g. chart with Collision</p>
+<img alt="../_images/with_collisions.png" src="../_images/with_collisions.png" />
+<p>e.g. stacked chart:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;cyl*mpg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="s1">&#39;stack&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/stacked.png" src="../_images/stacked.png" />
+<p>e.g. dodged chart:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;cyl&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interval</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;cyl*mpg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="s1">&#39;dodge&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="../_images/dodged.png" src="../_images/dodged.png" />
+<p>e.g. jitter charts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mtcars.csv&quot;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">G2</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="s1">&#39;cyl&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">point</span><span class="p">()</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="s1">&#39;cyl*mpg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="s1">&#39;jitter&#39;</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/jitter.png" src="../_images/jitter.png" />
 </div>
 </div>
 
