@@ -34,7 +34,7 @@ e.g. Different shapes ::
 
 Output:
 
-.. image:: geom_charts/point_Shapes.png
+.. image:: geom_charts/point_shapes.png
 
 
 line
