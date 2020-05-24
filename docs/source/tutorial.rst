@@ -11,15 +11,14 @@ PyG2 is very logical and commnds are simple when it comes to graphic generations
 
 * Import modules::
 
-    from PyG2 import pyG2
-    import pandas
+    from pyG2 import G2
+    import pandas as pd
 
 * In this example we use ``mtcars`` dataset from https://vincentarelbundock.github.io/Rdatasets/csv/datasets/mtcars.csv Download CSV file, save it in the same folder as the notebook and change the header of the first column to **name**
 
 * Prepare a Panda DataFrame::
 
     df = pd.read_csv('mtcars.csv')
-    df.head(1)
 
 Columns are 'name', 'mpg', 'cyl', 'disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am',
        'gear' and 'carb'.
@@ -36,7 +35,7 @@ Chart Layout Configuration
 
 We have to construct a graph object::
 
-    chart = Chart(height, width, autoFit, limitInPlot, padding, pixelRatio, renderer, visible)
+    chart = G2.Chart(height, width, autoFit, limitInPlot, padding, pixelRatio, renderer, visible)
 
 All parameters are optional. 
 
