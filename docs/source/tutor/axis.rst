@@ -14,6 +14,7 @@ Add axis title::
 If you want to change axis name you have to add::
 
     chart.scale('mpg',alias = 'Miles per Galon')
+    chart.render()
 
 
 Output:
