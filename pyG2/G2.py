@@ -390,9 +390,12 @@ class Chart:
         =======
         string
         '''
-        self.coordinate_sys = CoordinateControl(name)
-        self.coordinate_sys.add_code()
-        return self.coordinate_sys
+        if name in ['rect','polar','theta','helix']:
+            self.coordinate_sys = CoordinateControl(name)
+            self.coordinate_sys.add_code()
+            return self.coordinate_sys
+        else:
+            raise ValueError("Unsupported input data value. Only `rect`,`polar`,`theta` and `helix` are supported.")
     
     def scale(self,variable,**config):
         '''

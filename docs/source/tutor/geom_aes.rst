@@ -112,7 +112,7 @@ interval
 
 ::
 
-    chart.interval().position('x,y')
+    chart.interval().position('x*y')
 
 If ``y`` is a single value then the interval is the interval between y value and 0.
 If ``y`` is a list then the interval is between two y values is the interval.
@@ -159,7 +159,7 @@ polygon
 
 ::
 
-    chart.polygon().position('x,y')
+    chart.polygon().position('x*y')
 
 ``x`` and ``y`` are lists such that corresponding values of two lists gives coordinates of the vertices.
 (Vertices are connected as they are ordered in two lists.)
@@ -202,7 +202,7 @@ schema
 ---------
 ::
 
-    chart.schema().position('x,y')
+    chart.schema().position('x*y')
 
 If the map is one dimensional then list must be supplied.
 
@@ -275,7 +275,7 @@ color
 
 ::
 
-    chart.<geometry>().position('x,y').color('z')
+    chart.<geometry>().position('x*y').color('z')
 
 e.g. ::
 
@@ -292,7 +292,8 @@ or
 
 ::
 
-    chart.<geometry>().position('x,y').color('z',*values)
+
+    chart.<geometry>().position('x*y').color('z',*values)
 
 e.g.::
 
@@ -306,9 +307,10 @@ e.g.::
 
 The colour range is prepared by interpolation. Therefore if you put 'white' and 'black' you can get a greyscale chart.
 
+
 ::
 
-    chart.<geometry>().position('x,y').color(color)
+    chart.<geometry>().position('x*y').color(color)
 
 
 Here ``values`` are list of colors to be used and  ``color`` is a color if one color is used for complete geometry.
@@ -320,7 +322,7 @@ size
 
 ::
 
-    chart.<geometry>().position('x,y').size('z')
+    chart.<geometry>().position('x*y').size('z')
 
 or
 
@@ -351,7 +353,7 @@ Label
 
 ::
 
-    chart.<geometry>().position('x,y').label('z')
+    chart.<geometry>().position('x*y').label('z')
 
 e.g.::
 
