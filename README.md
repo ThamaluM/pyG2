@@ -15,7 +15,7 @@ AntV/G2 javascript library
 Description
 =============
 
-A python wrapped version of G2 charting library. Works on **Jupyter notebooks**. Provide Grammar of Graphics support to jupyter notebooks. 
+A python wrapped version of G2 charting library. Works on **Jupyter notebooks**. Provides Grammar of Graphics support to jupyter notebooks. 
 
 Syntax is closer to original G2.  
 
